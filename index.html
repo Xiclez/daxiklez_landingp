@@ -3,9 +3,15 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>My Links</title>
+   <title>DaXiklez</title>
+   <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
+   <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+   <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+   <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+   <link rel="manifest" href="./assets/favicon/site.webmanifest" />
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
    <style>
      body {
        background-image: url('./assets/daxiklez.jpg');
@@ -13,12 +19,19 @@
        background-position: center;
        background-repeat: no-repeat;
        background-attachment: fixed;
+       min-height: 100vh;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
      }
-     .content-container {
-       background: rgba(255, 255, 255, 0.85);
-       backdrop-filter: blur(10px);
-       border-radius: 15px;
-       padding: 20px;
+     .circle-img {
+       width: 200px; /* Size for circle */
+       height: 200px;
+       border-radius: 50%;
+       background-size: cover;
+       background-position: center;
+       margin: 20px auto; /* Center and spacing */
      }
      .link-container {
        max-width: 400px;
@@ -28,70 +41,114 @@
      }
      .link-btn {
        width: 100%;
-       margin-bottom: 15px;
-       padding: 15px;
+       padding: 7.5px; 
        text-align: center;
        border-radius: 10px;
        font-weight: 600;
        transition: transform 0.2s, opacity 0.2s;
+       display: flex;
+       justify-content: center;
+       align-items: center;
      }
      .link-btn:hover {
        transform: scale(1.05);
        opacity: 0.9;
      }
+     .social-media-grid {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 10px;
+       margin-top: 20px;
+     }
+     .social-media-grid a {
+       width: 100%;
+       height: 100%;
+     }
+     .social-media-grid i {
+       font-size: 24px;
+     }
+     @media (min-width: 768px) {
+       .circle-img {
+         margin: 0; /* Remove automatic margin on larger screens */
+       }
+     }
    </style>
 </head>
-<body class="min-h-screen flex items-center justify-center">
+
+<body>
+   <!-- Top Circle Image -->
+   <div class="circle-img" style="background-image: url('./assets/img2.png');"></div>
+
    <div class="link-container">
      <!-- Description Box -->
      <div class="bg-white rounded-xl shadow-2xl p-6 text-center mb-6">
        <h1 class="text-2xl font-bold text-gray-800 mb-3">Hello, I'm DaXiklez</h1>
+       <p class="text-gray-600">Orvil Alejandro Ibarra Patiño</p>
        <p class="text-gray-600">IT/Financial Consultant.</p>
        <p class="text-gray-600">Independent Audio-Visual Creator.</p>
-       <p class="text-gray-600">Loving what I do!</p>
      </div>
 
-     <div class="space-y-4">
-       <!-- CV -->
-       <a href="https://resumecv-rho.vercel.app/" 
-          class="link-btn bg-green-500 text-white block">
-         View CV
-       </a>
+     <!-- View CV Button -->
+     <a href="https://resumecv-rho.vercel.app/" 
+        class="link-btn bg-green-500 text-white block mb-6">
+       View CV
+     </a>
 
-       <!-- Social Media Links -->
+     <!-- Social Media Links -->
+     <div class="social-media-grid">
        <a href="https://www.linkedin.com/in/orvil-alejandro-ibarra-pati%C3%B1o-4141b4b2" target="_blank" 
           class="link-btn bg-blue-600 text-white">
-         <i class="fab fa-linkedin mr-3"></i>LinkedIn
+         <i class="fab fa-linkedin"></i>
        </a>
        <a href="https://github.com/Xiclez" target="_blank" 
           class="link-btn bg-gray-800 text-white">
-         <i class="fab fa-github mr-3"></i>GitHub
+         <i class="fab fa-github"></i>
        </a>
        <a href="https://x.com/vallesesmeraldz?t=ZEJLgoOgtqo47XZsCWmDFg&s=08" target="_blank" 
           class="link-btn bg-blue-400 text-white">
-         <i class="fab fa-twitter mr-3"></i>Twitter
+         <i class="fab fa-twitter"></i>
        </a>
        <a href="https://www.instagram.com/daxiklez/profilecard/?igsh=MWV5Ym1rbTF2aW9zcQ==" target="_blank" 
           class="link-btn bg-pink-500 text-white">
-         <i class="fab fa-instagram mr-3"></i>Instagram
+         <i class="fab fa-instagram"></i>
        </a>
        <a href="https://youtube.com/@daxiklez?si=V_8HK9SgqyVbZ1ka" target="_blank" 
           class="link-btn bg-red-600 text-white">
-         <i class="fab fa-youtube mr-3"></i>YouTube
+         <i class="fab fa-youtube"></i>
        </a>
        <a href="https://www.tiktok.com/@daxiklez?_t=8rzT8ZqiuCz&_r=1" target="_blank" 
           class="link-btn bg-black text-white">
-         <i class="fab fa-tiktok mr-3"></i>TikTok
+         <i class="fab fa-tiktok"></i>
        </a>
-
-       <!-- Emergency ID -->
-       <button 
-          onclick="handleEmergencyID()"
-          class="link-btn bg-blue-500 text-white">
-         Emergency ID
-       </button>
+       <a href="https://open.spotify.com/artist/4yWceRDOlPSnQAfICKTiN3?si=1S0orgM-Qtmsbb6iuViKgw" target="_blank" 
+          class="link-btn bg-green-700 text-white">
+         <i class="fab fa-spotify"></i>
+       </a>
+       <a href="https://on.soundcloud.com/gnqyc" target="_blank" 
+          class="link-btn bg-orange-500 text-white">
+         <i class="fab fa-soundcloud"></i>
+       </a>
      </div>
+
+     <!-- Spotify Widget -->
+     <div class="mt-8">
+       <iframe style="border-radius:12px" 
+               src="https://open.spotify.com/embed/track/3PwPbWwb73sf1PAz6z4Wcv?utm_source=generator" 
+               width="100%" height="80" frameBorder="0" 
+               allowfullscreen="" 
+               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+     </div>
+
+     <!-- Emergency ID -->
+     <button 
+        onclick="handleEmergencyID()"
+        class="link-btn bg-blue-500 text-white">
+       Emergency ID
+     </button>
    </div>
+
+   <!-- Bottom Circle Image -->
+   <div class="circle-img" style="background-image: url('./assets/img1.png');"></div>
 
    <script>
      async function handleEmergencyID() {
@@ -117,7 +174,6 @@
            alert(data.message);
            window.location.href = "emergency-id.html";
          } else {
-           // Show error message
            alert(data.message || "Invalid PIN");
          }
        } catch (error) {
