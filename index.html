@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>My Links</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <style>
+     body {
+       background-image: url('./assets/daxiklez.jpg');
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+     }
+     .content-container {
+       background: rgba(255, 255, 255, 0.85);
+       backdrop-filter: blur(10px);
+       border-radius: 15px;
+       padding: 20px;
+     }
+     .link-container {
+       max-width: 400px;
+       width: 100%;
+       margin: 0 auto;
+       padding: 20px;
+     }
+     .link-btn {
+       width: 100%;
+       margin-bottom: 15px;
+       padding: 15px;
+       text-align: center;
+       border-radius: 10px;
+       font-weight: 600;
+       transition: transform 0.2s, opacity 0.2s;
+     }
+     .link-btn:hover {
+       transform: scale(1.05);
+       opacity: 0.9;
+     }
+   </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+   <div class="link-container">
+     <!-- Description Box -->
+     <div class="bg-white rounded-xl shadow-2xl p-6 text-center mb-6">
+       <h1 class="text-2xl font-bold text-gray-800 mb-3">Hello, I'm DaXiklez</h1>
+       <p class="text-gray-600">IT/Financial Consultant.</p>
+       <p class="text-gray-600">Independent Audio-Visual Creator.</p>
+       <p class="text-gray-600">Loving what I do!</p>
+     </div>
+
+     <div class="space-y-4">
+       <!-- CV -->
+       <a href="https://resumecv-rho.vercel.app/" 
+          class="link-btn bg-green-500 text-white block">
+         View CV
+       </a>
+
+       <!-- Social Media Links -->
+       <a href="https://www.linkedin.com/in/orvil-alejandro-ibarra-pati%C3%B1o-4141b4b2" target="_blank" 
+          class="link-btn bg-blue-600 text-white">
+         <i class="fab fa-linkedin mr-3"></i>LinkedIn
+       </a>
+       <a href="https://github.com/Xiclez" target="_blank" 
+          class="link-btn bg-gray-800 text-white">
+         <i class="fab fa-github mr-3"></i>GitHub
+       </a>
+       <a href="https://x.com/vallesesmeraldz?t=ZEJLgoOgtqo47XZsCWmDFg&s=08" target="_blank" 
+          class="link-btn bg-blue-400 text-white">
+         <i class="fab fa-twitter mr-3"></i>Twitter
+       </a>
+       <a href="https://www.instagram.com/daxiklez/profilecard/?igsh=MWV5Ym1rbTF2aW9zcQ==" target="_blank" 
+          class="link-btn bg-pink-500 text-white">
+         <i class="fab fa-instagram mr-3"></i>Instagram
+       </a>
+       <a href="https://youtube.com/@daxiklez?si=V_8HK9SgqyVbZ1ka" target="_blank" 
+          class="link-btn bg-red-600 text-white">
+         <i class="fab fa-youtube mr-3"></i>YouTube
+       </a>
+       <a href="https://www.tiktok.com/@daxiklez?_t=8rzT8ZqiuCz&_r=1" target="_blank" 
+          class="link-btn bg-black text-white">
+         <i class="fab fa-tiktok mr-3"></i>TikTok
+       </a>
+
+       <!-- Emergency ID -->
+       <button 
+          onclick="handleEmergencyID()"
+          class="link-btn bg-blue-500 text-white">
+         Emergency ID
+       </button>
+     </div>
+   </div>
+
+   <script>
+     async function handleEmergencyID() {
+       const pin = prompt("Please enter the PIN:");
+       if (!pin) {
+         alert("PIN cannot be empty.");
+         return;
+       }
+
+       try {
+         const response = await fetch("https://orvildev.xyz/verify-pin", {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json"
+           },
+           body: JSON.stringify({ pin })
+         });
+
+         const data = await response.json();
+
+         if (response.ok) {
+           // Redirect if PIN is correct
+           alert(data.message);
+           window.location.href = "emergency-id.html";
+         } else {
+           // Show error message
+           alert(data.message || "Invalid PIN");
+         }
+       } catch (error) {
+         console.error("Error verifying PIN:", error);
+         alert("An error occurred while verifying the PIN. Please try again later.");
+       }
+     }
+   </script>
+</body>
+</html>
